@@ -4,7 +4,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import KMeans
 
 # Load dataset
-df = pd.read_csv('data/pokemon_stats.csv')
+df = pd.read_csv('../data/pokemon_stats.csv')
 
 # Normalize type columns
 for col in ['PrimaryType','SecondaryType']:
@@ -38,7 +38,7 @@ for c, names in df_clean.groupby('Cluster')['Name']:
 
 out_df = pd.DataFrame(rows).sort_values(['Cluster','Pokemon']).reset_index(drop=True)
 
-out_path = 'data/cluster_members_k5.csv'
+out_path = '../data/cluster_members_k5.csv'
 out_df.to_csv(out_path, index=False)
 
 print(f"Saved {out_path}; unique Pokemon: {len(df_clean)}")
